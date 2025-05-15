@@ -1,4 +1,4 @@
-
-/* body{
-  background-color: #20243C;
-} */
+@import "tailwindcss";
+#root{
+    background-color: 		#0F172A;
+}

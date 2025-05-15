@@ -1,4 +1,7 @@
-import { Navbar,Welcome,Services,Transactions,Footer} from "../components/index";
+import { Navbar,Welcome,
+  // Services,
+  Transactions,Footer} from "../components/index";
+  import Services from "../components/Services";
 import React from 'react'
 
 function HomePage() {

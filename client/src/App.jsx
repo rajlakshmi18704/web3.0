@@ -1,19 +1,26 @@
-import { Navbar,Welcome,Services,Transactions,Footer} from "./components";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import  "./App.css"
-import Market from "./Pages/Market";
-import HomePage from "./Pages/HomePage";
-const App = () => (
-  <div className="min-h-screen">
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import { BrowserRouter as Router,Routes,Route }  from 'react-router-dom'
+import './App.css'
+import HomePage from './Pages/HomePage'
+import CoinsTable from './components/Market/CoinsTable'
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <div>
     
-
-     <Router>
-      <Routes>
-               <Route path="/" element={    <HomePage/>} />  
-         <Route path="/market" element={<Market />} />
+      <Router>
+        <Routes>
+<Route path="/" element={<HomePage/>} />
+        <Route path="/market" element={<CoinsTable/>} />
         </Routes>
-     </Router>
-  </div>
-);
+        
+      </Router>
+      </div>
+    </>
+  )
+}
 
-export default App;
+export default App

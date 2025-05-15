@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 
-import { contractABI, contractAddress } from "../utils/constants";
+import { contractABI, contractAddress } from "../../utils/constants";
 
 export const TransactionContext = React.createContext();
 
@@ -124,7 +124,7 @@ export const TransactionProvider = ({ children }) => {
         console.log(`Loading - ${transactionHash.hash}`);
         await transactionHash.wait();
         console.log(`Success - ${transactionHash.hash}`);
-        setIsLoading(false);
+        setIsLoading(true);
 
         const transactionsCount = await transactionsContract.getTransactionCount();
 

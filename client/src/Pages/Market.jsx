@@ -1,9 +1,9 @@
 import React from 'react'
-import CoinsTable from '../components/Market/CoinsTable'
+// import CoinsTable from '../components/Market/CoinsTable'
 function Market() {
   return (
     <div>
-<CoinsTable/>
+{/* <CoinsTable/> */}
     </div>
   )
 }
