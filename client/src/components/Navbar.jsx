@@ -1,109 +1,107 @@
 import { HiMenuAlt4 } from "react-icons/hi";
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
-import logo from "../images/logo.png";
 import {
   FaHome,
   FaHistory,
   FaWallet,
-  FaBars,
-  FaTimes,
-  FaEthereum,
-  FaSignOutAlt,
-  FaArrowRight,
-  FaInfoCircle,
 } from "react-icons/fa";
-const NavBarItem = ({ title, className }) => (
-    <li className={`mx-4 cursor-pointer ${className}`}>{title}</li>
-  );
-  
-  // const menuItems = ["Market", "Exchange", "Tutorials", "Wallets"];
-  //   const navItems = [
-  //   { name: "Home", icon: FaHome, href: "#" },
-  //   { name: "Transactions", icon: FaHistory, href: "#transactions" },
-  //   {name:"market", icon: FaWallet, path: "/market"},
-  // ];
-  const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const navigate = useNavigate();
-    return (
-      <nav className="w-full flex md:justify-center justify-between items-center p-4  darkbg">
-        <div className="md:flex-[0.5] flex-initial justify-center items-center ">
-          <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+import logo from "../images/logo.png";
+
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  return (
+    <nav className="w-full bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 text-white py-4 shadow-md fixed top-0 z-50">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
+        
+        {/* Logo - No shift */}
+        <div className="flex items-center">
+          <img src={logo} alt="Logo" className="w-12 h-12 object-contain" />
         </div>
-  
-     <ul className="text-white md:flex hidden list-none flex-row items-center space-x-4">
-      <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-400 transition-colors">
- <FaHome  className="text-lg"/>
-      <li    className="group flex items-center space-x-2 cursor-pointer hover:text-blue-400 transition-colors">Home</li>
-      </div>
-   
-  
-        <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-400 transition-colors">
-   
-      <FaWallet/>
-        <li    className="group flex items-center space-x-2 cursor-pointer
-         hover:text-blue-400 transition-colors">Transactions</li>
-        </div>
-     <div>
-  <li className="group flex items-center space-x-2 cursor-pointer
-         hover:text-blue-400 transition-colors"  onClick={() => navigate('/market')}>Market</li>
-     </div>
-    
-     </ul>
-  
-        <div className="flex relative md:hidden">
+
+        {/* Desktop Menu - Shifted down */}
+        <ul className="hidden md:flex space-x-8 mt-6">
+          <li
+            className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition"
+            onClick={() => navigate("/")}
+          >
+            <FaHome />
+            <span className="mt-2">Home</span>
+          </li>
+          <li
+            className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition"
+            onClick={() => navigate("/transactions")}
+          >
+            <FaHistory />
+            <span className="mt-2">Transactions</span>
+          </li>
+          <li
+            className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition"
+            onClick={() => navigate("/market")}
+          >
+            <FaWallet />
+            <span className="mt-2">Market</span>
+          </li>
+        </ul>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
           {isMenuOpen ? (
             <AiOutlineClose
-              fontSize={28}
-              className="text-white cursor-pointer"
+              size={24}
+              className="cursor-pointer"
               onClick={() => setIsMenuOpen(false)}
             />
           ) : (
             <HiMenuAlt4
-              fontSize={28}
-              className="text-white cursor-pointer"
+              size={24}
+              className="cursor-pointer"
               onClick={() => setIsMenuOpen(true)}
             />
           )}
-  
-          {isMenuOpen && (
-            // <ul
-            //   className="z-10 fixed top-0 right-0 p-3 w-[70vw] h-screen shadow-2xl list-none
-            //   flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in"
-            // >
-            //   <li className="text-xl w-full my-2">
-            //     <AiOutlineClose onClick={() => setIsMenuOpen(false)} />
-            //   </li>
-            //   {menuItems.map((item, index) => (
-            //     <NavBarItem key={item + index} title={item} className="my-2 text-lg" />
-            //   ))}
-            // </ul>
-              <ul className="text-white md:flex hidden list-none flex-row items-center space-x-4">
-      <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-400 transition-colors">
- <FaHome  className="text-lg"/>
-      <li    className="group flex items-center space-x-2 cursor-pointer hover:text-blue-400 transition-colors">Home</li>
+        </div>
       </div>
-   
-  
-        <div className="flex items-center space-x-2 cursor-pointer hover:text-blue-400 transition-colors">
-   
-      <FaWallet/>
-        <li    className="group flex items-center space-x-2 cursor-pointer
-         hover:text-blue-400 transition-colors">Transactions</li>
-        </div>
-     <div>
-  <li className="group flex items-center space-x-2 cursor-pointer
-         hover:text-blue-400 transition-colors"  onClick={() => navigate('/market')}>Market</li>
-     </div>
-    
-     </ul>
-          )}
-        </div>
-      </nav>
-    );
-  };
-  
-  export default Navbar;
+
+      {/* Mobile Menu - Shifting text down */}
+      {isMenuOpen && (
+        <ul className="md:hidden mt-4 space-y-4 px-6 font-medium">
+          <li
+            className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition"
+            onClick={() => {
+              navigate("/");
+              setIsMenuOpen(false);
+            }}
+          >
+            <FaHome />
+            <span className="mt-2">Home</span>
+          </li>
+          <li
+            className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition"
+            onClick={() => {
+              navigate("/transactions");
+              setIsMenuOpen(false);
+            }}
+          >
+            <FaHistory />
+            <span className="mt-2">Transactions</span>
+          </li>
+          <li
+            className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition"
+            onClick={() => {
+              navigate("/market");
+              setIsMenuOpen(false);
+            }}
+          >
+            <FaWallet />
+            <span className="mt-2">Market</span>
+          </li>
+        </ul>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
