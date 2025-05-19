@@ -81,7 +81,7 @@ const Services = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Why Choose <span className="text-neutral-500">MetaSecure</span>
+            Why Choose <span className="text-neutral-500">SolidiPay</span>
           </h2>
           <p className="text-neutral-400 text-lg max-w-2xl mx-auto">
             Our blockchain-based platform offers secure, transparent, and

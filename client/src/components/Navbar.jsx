@@ -14,12 +14,12 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="w-full bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 text-white py-4 shadow-md fixed top-0 z-50">
+    <nav className="w-full bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600 text-white py-2 shadow-md fixed top-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
         
         {/* Logo - No shift */}
         <div className="flex items-center">
-          <img src={logo} alt="Logo" className="w-12 h-12 object-contain" />
+          <img src={logo} alt="Logo" className="w-20 h-16 object-contain" />
         </div>
 
         {/* Desktop Menu - Shifted down */}
@@ -31,13 +31,13 @@ const Navbar = () => {
             <FaHome />
             <span className="mt-2">Home</span>
           </li>
-          <li
+          {/* <li
             className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition"
             onClick={() => navigate("/transactions")}
           >
             <FaHistory />
             <span className="mt-2">Transactions</span>
-          </li>
+          </li> */}
           <li
             className="flex items-center space-x-2 cursor-pointer hover:text-yellow-300 transition"
             onClick={() => navigate("/market")}

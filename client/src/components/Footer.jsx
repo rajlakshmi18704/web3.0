@@ -16,15 +16,27 @@ const Footer = () => (
       </div>
     </div>
 
-    <div className="flex justify-center items-center flex-col mt-5">
-      <p className="text-white text-sm text-center">Come join us and hear for the unexpected miracle</p>
-      <p className="text-white text-sm text-center font-medium mt-2">info@kryptomastery.com</p>
+    {/* Logo and Text in one line */}
+    <div className="flex justify-center items-center flex-col sm:flex-row gap-4 mt-5">
+      <img
+        src={logo}
+        alt="logo"
+        className="w-20 sm:w-24 object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
+      />
+      <div className="flex flex-col items-center sm:items-start">
+        <p className="text-white text-sm text-center sm:text-left">
+          Come join us and hear for the unexpected miracle
+        </p>
+        <p className="text-white text-sm text-center sm:text-left font-medium mt-1">
+          info@Solidipay.com
+        </p>
+      </div>
     </div>
 
     <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 " />
 
     <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
-      <p className="text-white text-left text-xs">@kryptomastery2025</p>
+      <p className="text-white text-left text-xs">@Solidipay2025</p>
       <p className="text-white text-right text-xs">All rights reserved</p>
     </div>
   </div>
